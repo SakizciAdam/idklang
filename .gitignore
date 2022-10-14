@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+target/*
+.vscode/*
+
+*.sh
+output.cpp
