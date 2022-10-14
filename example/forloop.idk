@@ -1,0 +1,20 @@
+import <vector>
+import <map>
+import def "idklang.hpp"
+
+start {
+    var s="";
+
+    for(int i=0;i<10;i++){
+        s+="Hello ";
+    }
+    
+    print(s);
+    int z=5;
+    while(z!=0){
+
+        print(z);
+        --z;
+    }
+    
+}
