@@ -1,0 +1,17 @@
+import <vector>
+import <map>
+import def "idklang.hpp"
+
+class Python {        
+  public:              
+    void IsPythonGood() {  
+      print("no");
+    }
+};
+
+start {
+    var s=Python();
+
+    s.IsPythonGood();
+    
+}
