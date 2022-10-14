@@ -23,6 +23,43 @@ class BetterString {
       return *this;
     }
 
+    BetterString operator+(BetterString const& rhs)
+	  {
+	  	return BetterString(raw + rhs.raw);
+	  }
+
+    bool operator==(const BetterString& rhs)
+    {
+        return raw==rhs.raw;
+    }
+
+    BetterString operator*(int rhs)
+	  {
+      std::string a=raw;
+      for(int i=0;i<rhs;i++){
+          a+=raw;
+      }
+
+      return BetterString(a);
+	  }
+
+     BetterString operator*=(int rhs)
+	  {
+      std::string a=raw;
+      for(int i=0;i<rhs;i++){
+          raw+=a;
+      }
+      return *this;
+	  }
+
+
+ 
+    BetterString& operator+=(const BetterString& rhs){
+
+      this->raw += rhs.raw;
+      return *this;
+    }
+
     std::string replace(std::string sub,std::string replace){
       return std::regex_replace(raw, std::regex(sub), replace);
     }
@@ -38,11 +75,7 @@ class BetterString {
 
       return b;
     }
-    BetterString& operator+=(const BetterString& rhs){
-
-      this->raw += rhs.raw;
-      return *this;
-    }
+    
 
 
 
@@ -63,11 +96,14 @@ std::ostream& operator<<(std::ostream &strm, const BetterString &a) {
   return strm << a.raw;
 }
 
-bool operator==(const BetterString& lhs, const BetterString& rhs)
-{
-    return lhs.raw==rhs.raw;
-}
 
+
+
+std::string input(){
+  std::string s;
+  getline (std::cin, s);
+  return s;
+}
 
 
 template <typename T>
