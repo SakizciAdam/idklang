@@ -1,0 +1,13 @@
+import <vector>
+import <map>
+import def "idklang.hpp"
+import def "time.hpp"
+
+start {
+    print("Type your age: ");
+    var s=stoi(input());
+
+    sleep(1500);
+
+    print("Your age doubled is",s*2);
+}

@@ -6,7 +6,7 @@ start {
     var s="";
 
     for(int i=0;i<10;i++){
-        s+="Hello ";
+        s+="Hello "; 
     }
     
     print(s);

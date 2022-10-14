@@ -1,0 +1,15 @@
+import <vector>
+import <map>
+import def "idklang.hpp"
+
+func square(float x){
+
+    ret x*x;
+}
+
+start {
+    var x=9.0f;
+
+    print(square(x));
+    
+}

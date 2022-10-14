@@ -1,0 +1,14 @@
+import <vector>
+import <map>
+import def "idklang.hpp"
+
+start {
+    var s=" idklang is good";
+
+    print(s*2);
+
+    s*=3;
+
+    print(s+"....");
+    
+}
