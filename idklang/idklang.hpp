@@ -38,6 +38,11 @@ class BetterString {
 
       return b;
     }
+    BetterString& operator+=(const BetterString& rhs){
+
+      this->raw += rhs.raw;
+      return *this;
+    }
 
 
 
@@ -62,6 +67,8 @@ bool operator==(const BetterString& lhs, const BetterString& rhs)
 {
     return lhs.raw==rhs.raw;
 }
+
+
 
 template <typename T>
 void print(T t)
