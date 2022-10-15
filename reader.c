@@ -2,7 +2,7 @@
 
 
 
-char *read(char *fileName)
+char* read(char *fileName)
 {
     FILE *file = fopen(fileName, "r");
     char *code;
