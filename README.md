@@ -28,8 +28,6 @@ g++ main.cpp -o ./target/idklang -L./include/
 ## Example
 
 ```
-import <vector>
-import <map>
 import def "idklang.hpp"
 
 start {
