@@ -1,5 +1,3 @@
-import <vector>
-import <map>
 import def "idklang.hpp"
 
 
@@ -8,7 +6,7 @@ start {
 
     enableWindowsColors();
     s.color(brightYellowFGColor);
-    print(s,"\n");
+    printl(s);
 
     print("hello "*3);
     

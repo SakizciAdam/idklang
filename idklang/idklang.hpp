@@ -119,10 +119,19 @@ inline BetterString operator+(const BetterString& lhs,const int& rhs) {
 }
 
 
+
+
 std::string input(){
   std::string s;
   getline (std::cin, s);
   return s;
+}
+
+template <typename T>
+void printl(T t)
+{
+
+  std::cout << t << std::endl;
 }
 
 
