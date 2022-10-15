@@ -31,8 +31,8 @@
 *.out
 *.app
 
-target/*
+build/*
 .vscode/*
 
 *.sh
-output.cpp
+output/*

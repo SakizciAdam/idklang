@@ -2,14 +2,17 @@ all: main
 
 SHELL=/bin/bash
 
-CXX = g++
+CC = g++
 CFLAGS = -g -L./include/
+MINGW=  -I/C:/MinGW/include
+BUILD_DIR=./build
+FINAL=idklang
 
 main:
-	mkdir -p ./target
-	$(CXX) main.cpp reader.c -o ./target/idklang $(CFLAGS)
+	mkdir -p $(BUILD_DIR)
+	$(CC) main.cpp reader.c -o $(BUILD_DIR)/$(FINAL) $(CFLAGS)
 mingw:
-	mkdir -p ./target
-	$(CXX) main.cpp reader.c -o ./target/idklang $(CFLAGS) -I/C:/MinGW/include
+	mkdir -p .$(BUILD_DIR)
+	$(CC) main.cpp reader.c -o $(BUILD_DIR)/$(FINAL) $(CFLAGS) $(MINGW) 
 clean:
-	rm -f ./target/idklang*
+	rm -r ./build
