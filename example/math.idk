@@ -1,0 +1,10 @@
+import def "idklang.hpp"
+import def "math.h"
+
+start {
+    
+    printl(clamp(5,1,4));
+    printl(clamp(0,1,4));
+    printl(clamp(3,1,4));
+
+}
