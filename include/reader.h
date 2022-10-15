@@ -5,10 +5,10 @@ extern "C"
     #include <stdlib.h>
     #include <string.h>
 }
-#ifndef READER_H_   /* Include guard */
+#ifndef READER_H_  
 
 #define READER_H_
 
-char* read(char* fileName);  /* An example function declaration */
+char* read(char* fileName); 
 
-#endif // READER_H_
+#endif 

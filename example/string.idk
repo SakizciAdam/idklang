@@ -2,13 +2,14 @@ import <vector>
 import <map>
 import def "idklang.hpp"
 
+
 start {
-    var s=" idklang is good";
+    var s="idklang is good";
 
-    print(s*2);
+    enableWindowsColors();
+    s.color(brightYellowFGColor);
+    print(s,"\n");
 
-    s*=3;
-
-    print(s+"....");
+    print("hello "*3);
     
 }

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <regex>
+#include "color.h"
 
 class BetterString {        
   public:              
@@ -22,6 +23,15 @@ class BetterString {
       raw=a.raw;
       return *this;
     }
+
+     BetterString operator+(char* const& rhs)
+	  {
+	  	return BetterString(raw + rhs);
+	  }
+
+    
+
+
 
     BetterString operator+(BetterString const& rhs)
 	  {
@@ -52,6 +62,10 @@ class BetterString {
       return *this;
 	  }
 
+
+    void color(const char* clr){
+      raw=clr+raw+resetColor;
+    }
 
  
     BetterString& operator+=(const BetterString& rhs){
@@ -96,7 +110,13 @@ std::ostream& operator<<(std::ostream &strm, const BetterString &a) {
   return strm << a.raw;
 }
 
+inline BetterString operator+(const int& lhs, const BetterString& rhs) {
+  return BetterString(lhs+rhs.raw);
+}
 
+inline BetterString operator+(const BetterString& lhs,const int& rhs) {
+  return BetterString(lhs.raw+rhs);
+}
 
 
 std::string input(){
