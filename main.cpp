@@ -11,6 +11,7 @@
 #include "./include/lexer.hpp"
 #include "./include/transpiler.hpp"
 #include "./include/argparser.hpp"
+#include "./include/reader.h"
 
 using namespace std;
 
@@ -30,19 +31,12 @@ int main(int argc,char** args){
         error("no file passed");
     }
 
-    string t,a;
 
-    ifstream f(args[1]);
+    char* a=read(args[1]);
 
-    if(!f.is_open()){
-        error("could not open file");
-    }
-
-    while (getline (f, t)) {
-        a+=t+"\n";
-    }
-
-    f.close();
+    if(a==NULL){
+         error("could not read file");
+    } 
 
     Lexer lexer;
     Transpiler trans;
