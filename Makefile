@@ -1,7 +1,5 @@
 all: main
 
-SHELL=/bin/bash
-
 CC = g++
 CFLAGS = -g -L./include/
 MINGW=  -I/C:/MinGW/include
