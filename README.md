@@ -1,6 +1,6 @@
-# idklang
+# Introduction
 
-idklang is compiled(transpiled to C++) programming language
+idklang is compiled(transpiled to C++) custom programming language I made in a day. Since I had some spare time I decided to improve it. idklang's file extension is .idk although you can use anything you want. 
 
 ## Installation
 
@@ -12,17 +12,30 @@ Use git to clone the project
 git clone https://github.com/SakizciAdam/idklang
 ```
 
-### Compile the project
+### Build
+
+#### CMake
 
 ```bash
-mkdir -p ./target
-g++ main.cpp -o ./target/idklang -L./include/
+mkdir -p cmakebuild
+cd cmakebuild
+cmake .. # use -G "MinGW Makefiles" flag if you are using MinGW
+make
+```
+
+#### Make
+
+```bash
+make
 ```
 
 ## How to compile idklang file
 
 ```bash
-./target/idklang <idklang file path> [-o: output file] [--keep: to keep the C++ file] [--no-compile: does not compile into executable]
+./target/idklang <idklang file path> 
+[-o: output file] 
+[--keep: to keep the C++ file] 
+[--no-compile: does not compile into executable]
 ```
 
 ## Example
@@ -32,13 +45,12 @@ import def "idklang.hpp"
 
 start {
     var s="Hello World";
-    print(s);
+    printl(s);
     
 }
-
 ```
 
-Or check out exampes folder to see more examples
+Or check out examples folder to see more examples
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
