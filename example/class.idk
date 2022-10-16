@@ -2,7 +2,7 @@ import def "idklang.hpp"
 
 class Python {        
   public:              
-    void IsPythonGood() {  
+    func IsPythonGood() {  
       print("no");
     }
 };
