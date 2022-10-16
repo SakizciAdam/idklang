@@ -1,6 +1,6 @@
 # Introduction
 
-idklang is compiled(transpiled to C++) custom programming language I made in a day. Since I had some spare time I decided to improve it. idklang's file extension is .idk although you can use anything you want. 
+idklang is compiled(transpiled to C++) custom programming language I made in a day. Since I had some spare time I decided to improve it. idklang's file extension is .idk. The syntax of a mix of JS, C++ and Python. 
 
 ## Installation
 
