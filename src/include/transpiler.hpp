@@ -2,7 +2,7 @@
 #include <map>
 #include <vector>
 #include <string>
-#include "../idklang/idklang.hpp"
+#include "../../idklang/idklang.hpp"
 
 class Transpiler {        
   public:   
