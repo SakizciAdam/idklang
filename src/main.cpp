@@ -12,16 +12,11 @@
 #include "./include/transpiler.hpp"
 #include "./include/argparser.hpp"
 #include "./include/reader.h"
+#include "./include/error.hpp"
 
 using namespace std;
 
 
-void error(string n,string error="fatal error"){
-    cout << "\033[31m" << error << ": " << "\033[0m" << n << endl;
-
-    
-    exit(1);
-}
 
 int main(int argc,char** args){
     #ifdef _WIN32
