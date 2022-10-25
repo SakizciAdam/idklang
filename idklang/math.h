@@ -9,6 +9,7 @@ extern "C"
 
 const float PI = 3.14159265358979323846264338f;
 const float E = 2.71828182845904523536028747;
+const float MOL=6.02214076F*pow(10,23);
 const float Tau=PI*2;
 const float Inf=INFINITY;
 const float NegativeInf=-INFINITY;
