@@ -9,6 +9,26 @@ class Transpiler {
     std::string transpile(std::vector<std::map<std::string,std::string>>  text);   
 };
 
+class Transpiler2 {        
+  public:   
+    std::string transpile(std::vector<std::map<std::string,std::string>>  text);   
+};
+
+std::string getKey(std::vector<std::map<std::string,std::string>> vec,int i,bool real=false){
+  if(real){
+      if(i<0){
+        return "";
+      }
+      if(i>=vec.size()){
+        return "";
+      }
+    }
+    i=i<0 ? 0 : i;
+    i= i>= vec.size() ? vec.size()-1 : i;
+
+    return (vec[i]).begin()->first;
+}
+
 std::string get(std::vector<std::map<std::string,std::string>> vec,int i,bool real=false){
     if(real){
       if(i<0){
@@ -43,6 +63,7 @@ std::string Transpiler::transpile(std::vector<std::map<std::string,std::string>>
         std::string next=get(vec,i+1);
         std::string realnext=get(vec,i+1,true);
         std::string realbefore=get(vec,i - 1,true);
+        bool sign=getKey(vec,i)=="SSIGN";
       
 
         if(syn=="\""){
@@ -81,7 +102,7 @@ std::string Transpiler::transpile(std::vector<std::map<std::string,std::string>>
             str+="\\n";
             continue;
           }
-          if(syn=="SPACE"){
+          if(syn=="SPACE"&&sign){
             str+=" ";
             continue;
           }
@@ -101,7 +122,7 @@ std::string Transpiler::transpile(std::vector<std::map<std::string,std::string>>
         else if(syn=="var"||syn=="func"){
             output+="auto";
         }
-        else if(syn=="SPACE"){
+        else if(syn=="SPACE"&&sign){
             output+=" ";
         } else if(syn=="LINE"){
             output+="\n";
