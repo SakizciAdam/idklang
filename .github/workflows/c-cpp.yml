@@ -14,6 +14,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: make
-      run: make
+      run: make && make clean
     - name: cmake
       run: cmake .
+    - uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
+        prerelease: true
+        title: "Development Build"
+        files: |
+          build/idklang
