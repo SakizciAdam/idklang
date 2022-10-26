@@ -16,7 +16,7 @@ jobs:
     - name: make
       run: make && make clean
     - name: cmake
-      run: mkdir -p build && cd build && cmake .. && cd .. && ls
+      run: cmake . && ls
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -24,4 +24,4 @@ jobs:
         prerelease: true
         title: "Development Build"
         files: |
-          ./build/idklang
+          idklang
