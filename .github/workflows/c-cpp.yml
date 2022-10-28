@@ -13,7 +13,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: make
-      run: make
     - name: cmake
-      run: cmake .
+      run: mkdir -p build && cd build && cmake .. && cd .. && rm -r build
+    - name: make
+      run: make && ls ./build
+    - uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "dev-build"
+        prerelease: true
+        title: "Development Build"
+        files: |
+          ./build/idklang
