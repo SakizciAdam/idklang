@@ -7,8 +7,6 @@
 #ifdef _WIN32
     #include <windows.h>
 #endif
-
-#include "./include/lexer.hpp"
 #include "./include/transpiler.hpp"
 #include "./include/argparser.hpp"
 #include "./include/reader.h"

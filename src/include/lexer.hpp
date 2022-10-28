@@ -17,6 +17,7 @@ const std::string FOR_LOOP="for";
 const std::string WHILE_LOOP="while"; 
 const std::string RETURN="ret"; 
 const std::string IMPORT="#include";
+const std::string HASH="#";
 const std::string AND="and"; 
 const std::string OR="or"; 
 const std::string XOR="xor"; 
@@ -45,6 +46,7 @@ const std::string MINUS="-";
 const std::string MULT="*";
 const std::string DIVIDE="/";
 const std::string COMMENT="//";
+const std::string IDK_DEFINE="idefine";
 
 
 
@@ -241,7 +243,10 @@ std::vector<std::map<std::string,std::string>> Lexer::toTokenVec(std::string tex
         } else if(token==RETURN){
             output.push_back(add("SSIGN","return"));
             token="";
-        }else if(token==START){
+        } else if(token==IDK_DEFINE){
+            output.push_back(add("SSIGN","idefine"));
+            token="";
+        } else if(token==START){
             output.push_back(add("SSIGN","start"));
             token="";
         }else if(token==IMPORT){
@@ -281,6 +286,10 @@ std::vector<std::map<std::string,std::string>> Lexer::toTokenVec(std::string tex
             token="";
         } else if(token==BIGGER){
             output.push_back(add("SIGN",">"));
+         
+            token="";
+        } else if(token==HASH){
+            output.push_back(add("SIGN","#"));
          
             token="";
         } else if(token==LS){

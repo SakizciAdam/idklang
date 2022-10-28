@@ -3,13 +3,10 @@
 #include <vector>
 #include <string>
 #include "../../idklang/idklang.hpp"
+#include "./lexer.hpp"
+
 
 class Transpiler {        
-  public:   
-    std::string transpile(std::vector<std::map<std::string,std::string>>  text);   
-};
-
-class Transpiler2 {        
   public:   
     std::string transpile(std::vector<std::map<std::string,std::string>>  text);   
 };
@@ -56,6 +53,11 @@ std::string Transpiler::transpile(std::vector<std::map<std::string,std::string>>
     std::vector<std::string> imports;
 
 
+    int skip=0;
+    
+    std::map<std::string,std::string> defined;
+    defined["ARGC"]="argc";
+    defined["ARGV"]="argv";
     for(int i=0;i<vec.size();i++){
       
         std::string syn=get(vec,i);
@@ -64,6 +66,11 @@ std::string Transpiler::transpile(std::vector<std::map<std::string,std::string>>
         std::string realnext=get(vec,i+1,true);
         std::string realbefore=get(vec,i - 1,true);
         bool sign=getKey(vec,i)=="SSIGN";
+
+        if (skip>0){
+          skip--;
+          continue;
+        }
       
 
         if(syn=="\""){
@@ -113,7 +120,7 @@ std::string Transpiler::transpile(std::vector<std::map<std::string,std::string>>
         }
 
         if(syn=="//"){
-
+          
         }
 
         if(syn=="const"){
@@ -127,7 +134,7 @@ std::string Transpiler::transpile(std::vector<std::map<std::string,std::string>>
         } else if(syn=="LINE"){
             output+="\n";
         } else if(syn=="start"){
-            output+="int main()";
+            output+="int main(int "+defined["ARGC"]+", char **"+defined["ARGV"]+")";
         } else if(syn=="or"){
             output+="||";
         } else if(syn=="and"){
@@ -179,7 +186,36 @@ std::string Transpiler::transpile(std::vector<std::map<std::string,std::string>>
         } else if(syn=="def"&&import){
           def=true;
           
-        }else {
+        } else if(syn=="#"){
+          if(next=="idefine"){
+              std::string realKey="";
+              std::string value="";
+              int x=0;
+              skip++;
+              while(x<1024){
+                std::string y=get(vec,i+2+x);
+                std::cout << y << std::endl;
+                if(identifierStr(y)&&y!="SPACE"){
+                  if(realKey.length()>0){
+                    value=y;
+                    defined[realKey]=value;
+                    skip++;
+                    
+                    break;
+                  } else {
+                    realKey=y;
+                  }
+
+                }
+                skip++;
+                x++;
+
+              }
+
+
+          }
+          
+        } else {
           output+=syn;
         }
 

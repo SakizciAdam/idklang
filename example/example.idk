@@ -1,3 +1,6 @@
+#idefine ARGC argCount
+#idefine ARGV args
+
 import def "idklang.hpp"
 
 start {
